@@ -16,6 +16,16 @@ class Subclasse extends Conexao
         }
     }
 
+    public static function allByClass($id)
+    {
+        $pdo = static::connect();
+        $result = $pdo->prepare('SELECT * FROM subclasses WHERE classe_id = :id');
+        $result->bindValue(':id', $id);
+        $result->execute();
+        $result->setFetchMode(\PDO::FETCH_CLASS, get_class());
+        return $result->fetchAll();
+    }
+
     public static function find($id)
     {
         $pdo = static::connect();
