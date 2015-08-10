@@ -6,7 +6,7 @@
 </head>
 <body>
     <div>
-        <form action="Controllers/RequisicaoController.php">
+        <form action="Controllers/RequisicaoController.php" method="POST">
             <div>
                 <label for="data_url"></label>
                 <input type="text" name="data_url" id="data_url">
