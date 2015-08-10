@@ -1,12 +1,10 @@
 <?php
-
 include('../Models/Conexao.php');
 include('../Models/Secao.php');
 include('../Models/Divisao.php');
 include('../Models/Grupo.php');
 include('../Models/Classe.php');
 include('../Models/Subclasse.php');
-include('SecaoController.php');
 
 if($_REQUEST['action'] == 'extrair' && !empty($_REQUEST['data_url'])) {
     $dados = RequisicaoController::extrair();
