@@ -7,6 +7,8 @@ SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='TRADITIONAL,ALLOW_INVALID_DATES';
 
+SET NAMES 'latin1' COLLATE 'latin1_swedish_ci';
+
 -- -----------------------------------------------------
 -- Table `cnae`.`secoes`
 -- -----------------------------------------------------
@@ -81,20 +83,20 @@ DROP TABLE IF EXISTS `cnae`.`classes` ;
 
 CREATE TABLE IF NOT EXISTS `cnae`.`classes` (
   `id` INT UNSIGNED NOT NULL AUTO_INCREMENT,
-  `grupos_id` INT UNSIGNED NOT NULL,
+  `grupo_id` INT UNSIGNED NOT NULL,
   `cnae_id` VARCHAR(15) NOT NULL,
   `descricao` VARCHAR(255) NOT NULL,
   `criado_em` DATETIME NOT NULL,
   `atualizado_em` DATETIME NULL,
   PRIMARY KEY (`id`),
   CONSTRAINT `fk_classes_grupos1`
-    FOREIGN KEY (`grupos_id`)
+    FOREIGN KEY (`grupo_id`)
     REFERENCES `cnae`.`grupos` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
-CREATE INDEX `fk_classes_grupos1_idx` ON `cnae`.`classes` (`grupos_id` ASC);
+CREATE INDEX `fk_classes_grupos1_idx` ON `cnae`.`classes` (`grupo_id` ASC);
 
 CREATE UNIQUE INDEX `id_UNIQUE` ON `cnae`.`classes` (`id` ASC);
 
